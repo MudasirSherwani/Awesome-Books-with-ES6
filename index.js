@@ -9,8 +9,8 @@ const collection = document.querySelector('#collection');
 let book = [];
 let bookList = JSON.parse(localStorage.getItem('bookList')) || [];
 
-// display book list
-function populate(book) {
+// display book list with arrow function
+const populate = (book) => {
   const row = document.createElement('tr');
   const bookTitle = document.createElement('td');
   const bookAuthor = document.createElement('td');
