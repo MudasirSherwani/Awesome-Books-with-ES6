@@ -1,5 +1,6 @@
 import bookCls from './modules/bookClass.js';
 import { pageNavig } from './modules/bookNav.js';
+import { DateTime } from './modules/luxon.js';
 
 const titleNew = document.querySelector('#title');
 const authorNew = document.querySelector('#author');
@@ -8,6 +9,7 @@ const collection = document.querySelector('#collection');
 let book = [];
 let bookList = JSON.parse(localStorage.getItem('bookList')) || [];
 
+// display book list
 function populate(book) {
   const row = document.createElement('tr');
   const bookTitle = document.createElement('td');
@@ -23,9 +25,9 @@ function populate(book) {
     objBookClassRemove.removeBook();
   });
 }
-
 bookList.forEach(populate);
 
+//submit book data
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   if (titleNew.value !== '' && authorNew.value !== '') {
@@ -40,4 +42,16 @@ form.addEventListener('submit', (e) => {
     alert('Please enter a title and author');
   }
 });
+
+// navigation of sections.
 window.onload = pageNavig();
+
+// show date and Time
+const dateTime = document.getElementById('datetimesection');
+const displayDateAndTime = () => {
+  const dated = DateTime.now();
+  dateTime.textContent = dated
+    .setLocale('en-US')
+    .toLocaleString(DateTime.DATETIME_FULL_WITH_SECONDS);
+};
+setInterval(displayDateAndTime, 1000);
