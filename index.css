@@ -62,7 +62,6 @@ main {
 }
 
 #form-section {
-  display: none;
   flex-direction: column;
   align-items: center;
   margin-top: 40px;

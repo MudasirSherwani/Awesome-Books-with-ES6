@@ -1,7 +1,6 @@
 let book = [];
 let bookList = JSON.parse(localStorage.getItem('bookList')) || [];
 export default class BookClass {
-
   constructor(id, title, author) {
     this.title = title;
     this.author = author;
@@ -19,5 +18,3 @@ export default class BookClass {
     localStorage.setItem('bookList', JSON.stringify(bookList));
   }
 }
-
- 
